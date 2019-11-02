@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+  www:
+    build: .
+    image: handicap-review/www
+    container_name: hcr_www
+    hostname: handicapreview.com
+    environment:
+      PHP_CATCHALL: "true"
+    depends_on:
+      - mysql
+    networks:
+      default:
+        aliases:
+          - handicap-review.localhost.org
+          - www.handicap-review.localhost.org
+
+#  elasticsearch:
+#    image: elasticsearch
+#    container_name: hcr_es
+#    networks:
+#      default:
+#        aliases:
+#          - es.handicap-review.localhost.org
+
+  mysql:
+    image: mariadb
+    container_name: hcr_mariadb
+    environment:
+      MYSQL_DATABASE: handicap_dev
+    volumes:
+      - ../handicap-db/mysql/handicap_dev.sql:/docker-entrypoint-initdb.d/01-mysql-dump.sql
+      - mariadb:/var/lib/mysql
+
+  redis:
+    image: redis
+    container_name: hcr_redis
+    networks:
+      default:
+        aliases:
+          - redis.handicap-review.localhost.org
+    volumes:
+      - redis:/data
+
+networks:
+  default:
+    name: hcr_network
+
+volumes:
+  mariadb:
+    name: "hcr-mariadb"
+  redis:
+    name: "hcr-redis"

@@ -1,0 +1,24 @@
+{
+    "require": {
+        "lonnieezell/codeigniter-forensics": "dev-master",
+        "illuminate/database": "^5.8.34",
+        "sofa/eloquence": "^5.6",
+        "facebook/graph-sdk": "5.5.*",
+        "abraham/twitteroauth": "^1.0.1",
+        "league/oauth2-linkedin": "^5.1.0",
+        "google/apiclient": "^2.2.4",
+        "geoip2/geoip2" : "^2.9.0",
+        "stripe/stripe-php": "^6.43.1",
+        "google/recaptcha": "^1.2.3",
+        "predis/predis": "^1.1.1",
+        "graphaware/neo4j-php-client": "^4.8.5",
+        "everyman/neo4jphp": "dev-master",
+        "elasticsearch/elasticsearch": "^7.2.2",
+		"filp/whoops": "^2.5.0"
+    },
+    "autoload": {
+        "classmap": [
+            "application/models"
+        ]
+    }
+}

@@ -1,0 +1,1 @@
+google.visualization.Query.setResponse({"version":"1","reqId":"0","status":"ok","sig":"123123213","table":{"cols":[{"id":"A","label":"Chet","type":"string"},{"id":"B","label":"Khong","type":"string"}],"rows":[{"c":[{"v":"VN"},{"v":"Tai"}]},{"c":[{"v":"DS"},{"v":"GTR"}]}]}});

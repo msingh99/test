@@ -1,0 +1,16 @@
+# This file specifically for docker-sync, compensates for horrible macOS volume mount performances
+#    See: https://medium.freecodecamp.org/speed-up-file-access-in-docker-for-mac-fbeee65d0ee7
+#    And: http://docker-sync.io/
+#
+# If you're not using docker-sync, it is safe to actively ignore this file.
+# Docker will not misbehave if it's present.
+
+version: "3.7"
+services:
+  www:
+    volumes:
+      - hcr-sync:/var/www/html:nocopy # nocopy is important
+
+volumes:
+  hcr-sync:
+    external: true

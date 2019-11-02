@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  www:
+    environment:
+      ENVIRONMENT: "development"
+      VIRTUAL_HOST: "handicapreview.localhost.org"
+      ERRORS: 1
+      ENABLE_XDEBUG: 1
+    volumes:
+      - .:/var/www/html:cached
+    ports:
+      - 80:80
+
+  mysql:
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - 3306:3306

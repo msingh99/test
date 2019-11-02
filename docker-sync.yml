@@ -1,0 +1,18 @@
+# This file specifically for docker-sync, compensates for horrible macOS volume mount performances
+#    See: https://medium.freecodecamp.org/speed-up-file-access-in-docker-for-mac-fbeee65d0ee7
+#    And: https://github.com/EugenMayer/docker-sync/
+#
+# If you're not using docker-sync, it is safe to actively ignore this file.
+# Docker will not misbehave if it's present.
+version: "2"
+
+options:
+  compose-file-path: ['docker-compose.yml', 'docker-compose.override.yml']
+  verbose: true
+
+syncs:
+  hcr-sync:
+    # which folder to watch / sync from - you can use tilde, it will get expanded.
+    # the contents of this directory will be synchronized to the Docker volume with the name of this sync entry
+    src: '.'
+    sync_excludes: ['.git', '.idea']
